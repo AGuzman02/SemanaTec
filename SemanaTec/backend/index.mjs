@@ -12,7 +12,7 @@ app.get('/', (req,res)=>{
 
 //get de datos
 app.get('/leerdatos', (req, res) => {
-  const booksCollection = collection(db, 'books'); // Crea una referencia a la colección 'books'
+  const booksCollection = collection(db, 'product'); // Crea una referencia a la colección 'books'
 
   getDocs(booksCollection)
     .then((querySnapshot) => {
@@ -20,8 +20,9 @@ app.get('/leerdatos', (req, res) => {
       querySnapshot.forEach((doc) => {
         data.push({
           id: doc.id,
-          author: doc.data().author,
-          title: doc.data().title,
+          product: doc.data().Producto,
+          price: doc.data().Precio,
+          img: doc.data().Imagen
         });
       });
 
