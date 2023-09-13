@@ -1,6 +1,6 @@
 import React from 'react'
 import { BsCartDashFill } from 'react-icons/bs';
-import "./Barra_busqueda_styles.css";
+import "./Components_styles.css";
 import Carrito from './Lista_productos';
 
 function Lista_Carro({results}) {

@@ -1,5 +1,7 @@
 import { BsFillCartPlusFill } from 'react-icons/bs';
 import React, {useState} from 'react'
+import "./Components_styles.css";
+
 
 
 
