@@ -34,9 +34,10 @@ const Barra_busqueda = () => {
 
     //Limpiar Consola
     function deleteProduct(){
-        console.clear();
+        //console.clear();
+        setCarrito([]);
         
-        }
+    }
 
     //Filtrar busqueda
     let results = [];
