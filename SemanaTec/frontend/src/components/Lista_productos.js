@@ -2,6 +2,7 @@ import { BsFillCartPlusFill } from 'react-icons/bs';
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import "./Components_styles.css";
+import { BsCartDashFill } from 'react-icons/bs';
 
 
 
@@ -40,6 +41,23 @@ function Lista_productos({ carrito, setCarrito, products }) {
         console.log(nuevoCarrito)
 
     };
+
+    const eliminarProducto = async (productId) => {
+        try {
+          // Realiza una solicitud para eliminar el producto con el ID especificado.
+          await axios.delete(`http://localhost:8000/borrar-dato/${productId}`);
+          console.log('si se borroo');
+      
+          // Actualiza la lista de productos en tu estado local si es necesario.
+          // Esto dependerá de cómo estés manejando la lista de productos en tu componente.
+          // Por ejemplo, podrías volver a cargar los datos o eliminar el producto localmente.
+      
+          // Una vez que el producto se ha eliminado con éxito, puedes realizar cualquier acción adicional,
+          // como mostrar un mensaje de éxito o actualizar la interfaz de usuario.
+        } catch (error) {
+          console.error('Error al eliminar el producto:', error);
+        }
+      };
     
 
     return (
@@ -77,6 +95,11 @@ function Lista_productos({ carrito, setCarrito, products }) {
                       <BsFillCartPlusFill size="1rem" />
                     </button>
                   </td>
+                  <td>
+                    <button type="button" className="btn btn-danger btn-sm boton-agg" onClick={() => eliminarProducto(product.id)}>
+                        <BsCartDashFill size="1rem" />
+                    </button>
+                 </td>
                 </tr>
               ))}
             </tbody>
