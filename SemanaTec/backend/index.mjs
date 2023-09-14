@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import db from './config/config_firebase.js'; // Importa db como valor predeterminado
-import { collection, getDocs, addDoc} from 'firebase/firestore';
+import { collection, getDocs, addDoc, doc, deleteDoc} from 'firebase/firestore';
 
 
 const app=express()
@@ -111,7 +111,7 @@ app.delete('/borrar-dato/:id', async (req, res) => {
     const { id } = req.params;
 
     // Referencia al documento que deseas borrar
-    const dataRef = doc(db, 'books', id);
+    const dataRef = doc(db, 'product', id);
 
     // Borra el documento
     await deleteDoc(dataRef);
