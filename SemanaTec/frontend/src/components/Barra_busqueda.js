@@ -3,8 +3,7 @@ import "./Barra_busqueda_styles.css";
 import { BsFillCartCheckFill } from 'react-icons/bs';
 import Lista_Carro from './Lista_Carro';
 import Lista_productos from './Lista_productos';
-//import Lista_productos from './Lista_productos';
-//import Lista_productos, { carrito } from './Lista_productos';
+
 
 
 const Barra_busqueda = () => {
@@ -57,7 +56,7 @@ const Barra_busqueda = () => {
             <div className='col container-lista'>
                 <h2 className='text-font col'><BsFillCartCheckFill size = '2rem'/> Tu carrito</h2>
                 <div className='carrito table-container'>
-                    <Lista_Carro carrito={carrito} />
+                    <Lista_Carro carrito={carrito} setCarrito={setCarrito}/>
                 </div>
             </div>
 

@@ -57,9 +57,14 @@ import "./Barra_busqueda_styles.css";
     </div>
   )
 }*/
-function Lista_Carro({ carrito }) {
+function Lista_Carro({ carrito, setCarrito}) {
     console.log('si esta entrando a carrito');
     console.log(carrito);
+    // Función para eliminar un producto del carrito
+    const eliminarDelCarrito = (productId) => {
+        const nuevoCarrito = carrito.filter((product) => product.id !== productId);
+        setCarrito(nuevoCarrito);
+    };
     return (
       <div>
         <table className="table table-light table-striped table-responsive-sm">
@@ -85,7 +90,7 @@ function Lista_Carro({ carrito }) {
                 <td>{product.product}</td>
                 <td>${product.price}</td>
                 <td>
-                  <button type="button" className="btn btn-danger btn-sm boton-agg">
+                  <button type="button" className="btn btn-danger btn-sm boton-agg" onClick={() => eliminarDelCarrito(product.id)}>
                     <BsCartDashFill size="1rem" />
                   </button>
                 </td>
