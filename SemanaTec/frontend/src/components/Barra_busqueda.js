@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import "./Barra_busqueda_styles.css";
+import "./Components_styles.css";
 import { BsFillCartCheckFill } from 'react-icons/bs';
 import Lista_Carro from './Lista_Carro';
 import Lista_productos from './Lista_productos';
