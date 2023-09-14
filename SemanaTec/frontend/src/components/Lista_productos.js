@@ -4,9 +4,9 @@ import axios from 'axios';
 
 
 
-function Lista_productos(props) {
+function Lista_productos({ carrito, setCarrito }) {
     
-    const [carrito, setCarrito] = useState([]);
+    //const [carrito, setCarrito] = useState([]);
     const [productos, setProductos] = useState([]);
 
 

@@ -2,14 +2,16 @@ import React, {useState, useEffect} from 'react'
 import "./Barra_busqueda_styles.css";
 import { BsFillCartCheckFill } from 'react-icons/bs';
 import Lista_Carro from './Lista_Carro';
+import Lista_productos from './Lista_productos';
 //import Lista_productos from './Lista_productos';
-import Lista_productos, { carrito } from './Lista_productos';
+//import Lista_productos, { carrito } from './Lista_productos';
 
 
 const Barra_busqueda = () => {
     // Declaramos los hooks
     const [products, setProducts] = useState([])
     const [buscar, setBuscar] = useState("")
+    const [carrito, setCarrito] = useState([]); // Estado del carrito
 
     // Datos de la API
     const URL = 'https://api.escuelajs.co/api/v1/products'
@@ -67,7 +69,10 @@ const Barra_busqueda = () => {
                 </div>
 
                 <div className='table-container'>
-                    <Lista_productos results={results}/>
+                <Lista_productos
+                    carrito={carrito} // Pasa el carrito como prop a Lista_Productos
+                    setCarrito={setCarrito} // Pasa la función para actualizar el carrito
+                />
                 </div>
 
                 <div className='col'>
