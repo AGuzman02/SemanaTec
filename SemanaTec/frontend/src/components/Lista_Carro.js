@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import { BsCartDashFill } from 'react-icons/bs';
 
-import "./Barra_busqueda_styles.css";
-//import "./Components_styles.css";
+//import "./Barra_busqueda_styles.css";
+import "./Components_styles.css";
 
 
 /*function Lista_Carro({carrito}) {
