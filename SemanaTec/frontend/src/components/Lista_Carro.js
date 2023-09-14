@@ -65,6 +65,14 @@ function Lista_Carro({ carrito, setCarrito}) {
         const nuevoCarrito = carrito.filter((product) => product.id !== productId);
         setCarrito(nuevoCarrito);
     };
+    // Función para calcular la suma total del precio
+    const calcularPrecioTotal = () => {
+        let total = 0;
+        carrito.forEach((product) => {
+        total += product.price;
+        });
+        return total;
+    };
     return (
       <div>
         <table className="table table-light table-striped table-responsive-sm">
@@ -98,6 +106,9 @@ function Lista_Carro({ carrito, setCarrito}) {
             ))}
           </tbody>
         </table>
+        <div>
+            <p>Total: ${calcularPrecioTotal()}</p> {/* Muestra la suma total */}
+        </div>
       </div>
     );
   }
