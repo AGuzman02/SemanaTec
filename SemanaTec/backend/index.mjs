@@ -1,10 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 import db from './config/config_firebase.js'; // Importa db como valor predeterminado
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, addDoc} from 'firebase/firestore';
 
 
 const app=express()
+app.use(express.json());
 app.use(cors());
 app.get('/', (req,res)=>{
   console.log(db)
@@ -36,23 +37,29 @@ app.get('/leerdatos', (req, res) => {
     });
 });
 
-app.post('/agregardatos', (req, res) => {
-  const nuevoLibro = {
-    title: req.body.title,
-    author: req.body.author,
-  };
 
-  // Agregar el nuevo libro a la colección "books"
-  db.collection('books').add(nuevoLibro)
-    .then((docRef) => {
-      console.log('Libro agregado con ID:', docRef.id);
-      res.json({ mensaje: 'Libro agregado correctamente', libroId: docRef.id });
-    })
-    .catch((error) => {
-      console.error('Error al agregar el libro:', error);
-      res.status(500).json({ error: 'Ocurrió un error al agregar el libro' });
-    });
+app.post('/agregardatos', async (req, res) => {
+  try {
+    // Obtén los datos del cuerpo de la solicitud
+    const { product, precio, img } = req.body;
+    // Crea un objeto con los datos del producto
+    const nuevoProducto = {
+      product,
+      precio,
+      img // Asegúrate de que coincida con el nombre del campo en tu base de datos
+    };
+
+    const docRef = await addDoc(collection(db, 'productos'), nuevoProducto);
+    console.log('Producto agregado con ID:', docRef.id);
+
+    res.status(200).json({ mensaje: 'Producto agregado correctamente', productId: docRef.id });
+  } catch (error) {
+    console.error('Error al agregar el producto:', error);
+    res.status(500).json({ error: 'Ocurrió un error al agregar el producto' });
+  }
 });
+
+
 
 app.delete('/borrar-dato/:id', async (req, res) => {
   try {

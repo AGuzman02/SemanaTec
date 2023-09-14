@@ -3,6 +3,7 @@ import "./Components_styles.css";
 import { BsFillCartCheckFill } from 'react-icons/bs';
 import Lista_Carro from './Lista_Carro';
 import Lista_productos from './Lista_productos';
+import AgregarProducto from './Agregar_Producto';
 
 
 
@@ -80,6 +81,9 @@ const Barra_busqueda = () => {
                 </button>
 
                 </div>
+            </div>
+            <div>
+                <AgregarProducto/>
             </div>
         </div>
     </div>
