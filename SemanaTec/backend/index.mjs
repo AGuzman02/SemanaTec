@@ -12,8 +12,8 @@ app.get('/', (req,res)=>{
   res.send('todo super cool')
 })
 
-//get de datos
-app.get('/leerdatos', (req, res) => {
+//get de datos JEANNETTE CON MI BASE PEDORRA
+/*app.get('/leerdatos', (req, res) => {
   const booksCollection = collection(db, 'productos'); // Crea una referencia a la colección 'books'
   console.log('se llamo al get');
   getDocs(booksCollection)
@@ -35,10 +35,35 @@ app.get('/leerdatos', (req, res) => {
       console.log('Error obteniendo documentos:', error);
       res.status(500).json({ mensaje: 'Error obteniendo datos' });
     });
+});*/
+
+//get de datos CON BASE DE IRAHY
+app.get('/leerdatos', (req, res) => {
+  const booksCollection = collection(db, 'product'); // Crea una referencia a la colección 'books'
+  console.log('se llamo al get');
+  getDocs(booksCollection)
+    .then((querySnapshot) => {
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({
+          id: doc.id,
+          product: doc.data().Producto,
+          price: doc.data().Precio,
+          img: doc.data().Imagen
+        });
+      });
+
+      console.log(data);
+      res.json(data);
+    })
+    .catch((error) => {
+      console.log('Error obteniendo documentos:', error);
+      res.status(500).json({ mensaje: 'Error obteniendo datos' });
+    });
 });
 
-
-app.post('/agregardatos', async (req, res) => {
+//agregar datos con la base de jeannette
+/*app.post('/agregardatos', async (req, res) => {
   try {
     // Obtén los datos del cuerpo de la solicitud
     const { product, precio, img } = req.body;
@@ -57,8 +82,28 @@ app.post('/agregardatos', async (req, res) => {
     console.error('Error al agregar el producto:', error);
     res.status(500).json({ error: 'Ocurrió un error al agregar el producto' });
   }
-});
+});*/
 
+app.post('/agregardatos', async (req, res) => {
+  try {
+    // Obtén los datos del cuerpo de la solicitud
+    const { Producto, Precio, Imagen } = req.body;
+    // Crea un objeto con los datos del producto
+    const nuevoProducto = {
+      Producto,
+      Precio,
+      Imagen // Asegúrate de que coincida con el nombre del campo en tu base de datos
+    };
+
+    const docRef = await addDoc(collection(db, 'product'), nuevoProducto);
+    console.log('Producto agregado con ID:', docRef.id);
+
+    res.status(200).json({ mensaje: 'Producto agregado correctamente', productId: docRef.id });
+  } catch (error) {
+    console.error('Error al agregar el producto:', error);
+    res.status(500).json({ error: 'Ocurrió un error al agregar el producto' });
+  }
+});
 
 
 app.delete('/borrar-dato/:id', async (req, res) => {

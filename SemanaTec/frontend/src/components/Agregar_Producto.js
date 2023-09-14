@@ -3,15 +3,18 @@ import axios from 'axios';
 
 
 function AgregarProducto() {
-  const [product, setProduct] = useState('');
-  const [precio, setPrecio] = useState('');
-  const [img, setImage] = useState('');
+  //const [product, setProduct] = useState('');
+  //const [precio, setPrecio] = useState('');
+  //const [img, setImage] = useState('');
+  const [Producto, setProduct] = useState('');
+  const [Precio, setPrecio] = useState('');
+  const [Imagen, setImage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Realiza la solicitud POST a la API aquí con los datos ingresados (nombre, precio, imagen).
     // Puedes usar Axios u otra biblioteca para realizar la solicitud.
-    const nuevoProducto = { product, precio, img };
+    const nuevoProducto = { Producto, Precio, Imagen };
     console.log(nuevoProducto);
     try {
         const response = await axios.post('http://localhost:8000/agregardatos', nuevoProducto, {
@@ -44,7 +47,7 @@ function AgregarProducto() {
           <input
             type="text"
             id="nombre"
-            value={product}
+            value={Producto}
             onChange={(e) => setProduct(e.target.value)}
             required
           />
@@ -54,7 +57,7 @@ function AgregarProducto() {
           <input
             type="number"
             id="precio"
-            value={precio}
+            value={Precio}
             onChange={(e) => setPrecio(e.target.value)}
             required
           />
@@ -64,7 +67,7 @@ function AgregarProducto() {
           <input
             type="text"
             id="imagen"
-            value={img}
+            value={Imagen}
             onChange={(e) => setImage(e.target.value)}
             required
           />
