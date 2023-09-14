@@ -1,10 +1,11 @@
 import express from 'express';
-//import { db } from './config/config_firebase.js';
+import cors from 'cors';
 import db from './config/config_firebase.js'; // Importa db como valor predeterminado
 import { collection, getDocs } from 'firebase/firestore';
 
 
 const app=express()
+app.use(cors());
 app.get('/', (req,res)=>{
   console.log(db)
   res.send('todo super cool')
@@ -12,22 +13,22 @@ app.get('/', (req,res)=>{
 
 //get de datos
 app.get('/leerdatos', (req, res) => {
-  const booksCollection = collection(db, 'product'); // Crea una referencia a la colección 'books'
-
+  const booksCollection = collection(db, 'productos'); // Crea una referencia a la colección 'books'
+  console.log('se llamo al get');
   getDocs(booksCollection)
     .then((querySnapshot) => {
       const data = [];
       querySnapshot.forEach((doc) => {
         data.push({
           id: doc.id,
-          product: doc.data().Producto,
-          price: doc.data().Precio,
-          img: doc.data().Imagen
+          product: doc.data().product,
+          price: doc.data().precio,
+          img: doc.data().image
         });
       });
 
       console.log(data);
-      res.json({ mensaje: 'Datos obtenidos correctamente', datos: data });
+      res.json(data);
     })
     .catch((error) => {
       console.log('Error obteniendo documentos:', error);

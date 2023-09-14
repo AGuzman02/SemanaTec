@@ -2,7 +2,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
-/*const firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyAmXu4kgEttQ4fMw9PZmI94WJ4NbDsohGM",
     authDomain: "tienda-33131.firebaseapp.com",
     projectId: "tienda-33131",
@@ -10,8 +10,8 @@ import { getFirestore } from 'firebase/firestore';
     messagingSenderId: "202960861497",
     appId: "1:202960861497:web:2322b294bccfe394c5d0e8",
     measurementId: "G-K38S4CZQ0D"
-  };*/
-  const firebaseConfig = {
+  };
+  /*const firebaseConfig = {
     apiKey: "AIzaSyB789RjOJ8uzNftIcqlo5Not3x5NiDuiYw",
     authDomain: "marketec-ff53d.firebaseapp.com",
     databaseURL: "https://marketec-ff53d-default-rtdb.firebaseio.com",
@@ -20,7 +20,7 @@ import { getFirestore } from 'firebase/firestore';
     messagingSenderId: "854829227864",
     appId: "1:854829227864:web:29124c3051d14d50db4f2d",
     measurementId: "G-582NWWK1QF"
-  };
+  };*/
   
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);

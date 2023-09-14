@@ -1,9 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { BsCartDashFill } from 'react-icons/bs';
 import "./Barra_busqueda_styles.css";
-import Carrito from './Lista_productos';
 
-function Lista_Carro({results}) {
+/*function Lista_Carro({carrito}) {
     
   return (
     <div>
@@ -52,15 +51,51 @@ function Lista_Carro({results}) {
                                         </td>
 
                                     </tr>
-                                    
-                                    
-
-                                    
-                              
+   
                             </tbody>
                         </table>
     </div>
   )
-}
+}*/
+function Lista_Carro({ carrito }) {
+    console.log('si esta entrando a carrito');
+    console.log(carrito);
+    return (
+      <div>
+        <table className="table table-light table-striped table-responsive-sm">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th></th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            {carrito.map((product) => (
+              <tr key={product.id}>
+                <td>
+                  <img
+                    src={product.img}
+                    className="rounded mx-auto img-fluid img-size"
+                    alt={`Imagen del producto ${product.img}`}
+                  />
+                </td>
+                <td>{product.product}</td>
+                <td>${product.price}</td>
+                <td>
+                  <button type="button" className="btn btn-danger btn-sm boton-agg">
+                    <BsCartDashFill size="1rem" />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+  
 
 export default Lista_Carro;
