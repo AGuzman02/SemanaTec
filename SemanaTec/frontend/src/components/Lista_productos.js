@@ -1,6 +1,7 @@
 import { BsFillCartPlusFill } from 'react-icons/bs';
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+//import "./Components_styles.css";
 
 
 
