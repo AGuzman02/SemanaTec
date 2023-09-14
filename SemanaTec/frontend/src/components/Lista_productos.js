@@ -1,18 +1,18 @@
 import { BsFillCartPlusFill } from 'react-icons/bs';
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-//import "./Components_styles.css";
+import "./Components_styles.css";
 
 
 
-function Lista_productos({ carrito, setCarrito }) {
+function Lista_productos({ carrito, setCarrito, products }) {
     
     //const [carrito, setCarrito] = useState([]);
-    const [productos, setProductos] = useState([]);
+    //const [productos, setProductos] = useState([]);
 
 
 
-  useEffect(() => {
+  /*useEffect(() => {
     console.log(productos);
       fetchProductos();
     
@@ -28,12 +28,12 @@ function Lista_productos({ carrito, setCarrito }) {
     } catch (error) {
       console.error('Error fetching employee:', error);
     }
-  };
+  };*/
     
     // Función para agregar un producto al carrito
     const agregarAlCarrito = (productId) => {
         // Clonamos el arreglo de carrito y agregamos el nuevo producto
-        const productToAdd = productos.find((product) => product.id === productId);
+        const productToAdd = products.find((product) => product.id === productId);
         const nuevoCarrito = [...carrito, productToAdd];
         setCarrito(nuevoCarrito);
 
@@ -55,7 +55,7 @@ function Lista_productos({ carrito, setCarrito }) {
             </thead>
       
             <tbody>
-              {productos.map((product, index) => (
+              {products.map((product, index) => (
                 <tr key={index}>
                   <td>
                     <img
