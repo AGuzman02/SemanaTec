@@ -111,4 +111,3 @@ function Lista_productos({ carrito, setCarrito, products }) {
 }
 export const carrito = [];
 export default Lista_productos;
-
