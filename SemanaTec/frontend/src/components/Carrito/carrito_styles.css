@@ -1,0 +1,54 @@
+.title{
+    font-family: 'Cabin', sans-serif;
+    color: white;
+}
+
+.container-products{
+    height: 60vh; 
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-left: 400px;
+    padding: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.total {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 100px;
+    height: 80px;
+    position: fixed; 
+    bottom: 40px;
+    right: 40px; 
+    font-size: 20px;
+    font-family: 'Cabin', sans-serif;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
+    justify-content: center;
+
+
+}
+
+.image-product {
+    height: 150px; 
+    width: 150px; 
+    display: block;
+    margin: 0 auto;
+  }
+
+.card {
+    width: 100%; /* Reducir el ancho de las tarjetas */
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 5px; /* Reducir el relleno de las tarjetas */
+  }
+
+.card-body {
+    padding: 4px; 
+  }
+
+  .card-text {
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    font-family: 'Cabin', sans-serif;
+
+  }
