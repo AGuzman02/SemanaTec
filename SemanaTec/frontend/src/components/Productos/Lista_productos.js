@@ -6,7 +6,7 @@ import { BsCartDashFill } from 'react-icons/bs';
 
 
 
-function Lista_productos({ carrito, setCarrito }) {
+function Lista_productos({ carrito, setCarrito, products }) {
     
     //const [carrito, setCarrito] = useState([]);
     //const [productos, setProductos] = useState([]);
