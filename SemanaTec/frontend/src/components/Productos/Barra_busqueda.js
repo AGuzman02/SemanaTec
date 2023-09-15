@@ -97,6 +97,10 @@ const Barra_busqueda = () => {
                 />
                 </div>  
 
+                <div >
+                    <Lista_Carro carrito={carrito} setCarrito={setCarrito}/>
+                </div> 
+
 
                 <div className='col self-align-center'>
                     <button onClick={deleteProduct} type="button" className="btn btn-danger boton-limpiar">

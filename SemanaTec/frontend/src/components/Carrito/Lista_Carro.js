@@ -3,9 +3,9 @@ import { BsCartDashFill } from 'react-icons/bs';
 import './carrito_styles.css'
 
 
-function Lista_Carro() {
+function Lista_Carro({carrito, setCarrito}) {
   
-  const [carrito, setCarrito] = useState([
+  /*const [carrito, setCarrito] = useState([
     {
       id: 1,
       product: 'Producto de Prueba 1',
@@ -49,7 +49,7 @@ function Lista_Carro() {
       img: 'https://hebmx.vtexassets.com/arquivos/ids/580280-800-800?v=638297725328530000&width=800&height=800&aspect=true',
     },
   ]); // Estado del carrito
-
+*/
   
 
     console.log('si esta entrando a carrito');
