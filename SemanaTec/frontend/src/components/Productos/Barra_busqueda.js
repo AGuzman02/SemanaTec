@@ -93,7 +93,10 @@ const Barra_busqueda = () => {
                     setCarrito={setCarrito} // Pasa la función para actualizar el carrito
                     products={results} // Pasamos results como prop en lugar de products
                 />
-                </div>  
+                </div> 
+                <div>
+                    <Lista_Carro carrito={carrito} setCarrito={setCarrito}/>
+                </div> 
 
 
                 <div className='col self-align-center'>
