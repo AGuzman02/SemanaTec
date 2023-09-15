@@ -1,0 +1,23 @@
+.logo{
+    width: 80px;
+    height: 80px;
+  }
+
+  .fondo{
+    background-color: transparent;
+  }
+  .texto{
+    font-size: 30px;
+    font-family: 'Cabin', sans-serif;
+    font-family: 'Varela Round', sans-serif;  
+  }
+  
+.menu{
+  background-color: transparent;
+  border: none;
+}
+
+
+.navbar-toggler.menu .GiHamburgerMenu {
+  color: white; 
+}
