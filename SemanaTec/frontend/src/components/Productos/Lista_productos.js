@@ -69,6 +69,7 @@ function Lista_productos({ carrito, setCarrito, products }) {
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th></th>
+                <th></th>
               </tr>
             </thead>
       

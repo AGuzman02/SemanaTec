@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import "./Components_styles.css";
 import { BsFillCartCheckFill } from 'react-icons/bs';
-import Lista_Carro from './Lista_Carro';
+import Lista_Carro from '../Carrito/Lista_Carro';
 import Lista_productos from './Lista_productos';
-import AgregarProducto from './Agregar_Producto';
+import AgregarProducto from '../Agregar Productos/Agregar_Producto';
 
 
 
@@ -14,8 +14,8 @@ const Barra_busqueda = () => {
     const [carrito, setCarrito] = useState([]); // Estado del carrito
 
     // Datos de la API
-    //const URL = 'https://api.escuelajs.co/api/v1/products'
-    const ruta = 'http://localhost:8000/leerdatos'
+    const ruta = 'https://api.escuelajs.co/api/v1/products'
+    //const ruta = 'http://localhost:8000/leerdatos'
     
     const showData = async () =>{
         const response = await fetch(ruta)
@@ -69,40 +69,45 @@ const Barra_busqueda = () => {
 
   return (
     <div>
-        <div className='container'>
+        <div>
 
-            <div className='col container-lista'>
+            {/*<div className='col container-lista'>
                 <h2 className='text-font col'><BsFillCartCheckFill size = '2rem'/> Tu carrito</h2>
                 <div className='carrito table-container'>
                     <Lista_Carro carrito={carrito} setCarrito={setCarrito}/>
                 </div>
-            </div>
+  </div>*/}
 
-            <div className='col container-products'>
+            <div >
 
-                <div className='barra'>
+                <div className='container-gen'>
+
+                <div className='barra col self-align-center'>
                     <input value={buscar} onChange={buscador}
                     type='text' placeholder='Buscar' className='form-control'/>
                 </div>
 
-                <div className='table-container'>
+                <div className='table-container col self-align-center'>
                 <Lista_productos
                     carrito={carrito} // Pasa el carrito como prop a Lista_Productos
                     setCarrito={setCarrito} // Pasa la función para actualizar el carrito
                     products={results} // Pasamos results como prop en lugar de products
                 />
+                </div>  
+
+
+                <div className='col self-align-center'>
+                    <button onClick={deleteProduct} type="button" className="btn btn-danger boton-limpiar">
+                    Limpiar seleccion
+                    </button>
                 </div>
 
-                <div className='col'>
-                <button onClick={deleteProduct} type="button" className="btn btn-danger boton-limpiar">
-                Limpiar seleccion
-                </button>
+
+
 
                 </div>
             </div>
-            <div>
-                <AgregarProducto/>
-            </div>
+            
         </div>
     </div>
   )
