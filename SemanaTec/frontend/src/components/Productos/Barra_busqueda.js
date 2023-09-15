@@ -14,8 +14,10 @@ const Barra_busqueda = () => {
     const [carrito, setCarrito] = useState([]); // Estado del carrito
 
     // Datos de la API
+
     //const ruta = 'https://api.escuelajs.co/api/v1/products'
     const ruta = 'http://localhost:8000/leerdatos'
+
     
     const showData = async () =>{
         const response = await fetch(ruta)
